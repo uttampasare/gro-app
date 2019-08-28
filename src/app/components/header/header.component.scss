@@ -1,23 +1,35 @@
+@import '../../../assets/css/common.scss';
 .nav-link{
-    font-family: Roboto,Arial,sans-serif;
+    font-family: $font-family;
     line-height: 20px;
     font-size: 16px;
     letter-spacing: .1px;
     font-weight: 500;
-    color: white!important;
+    color: $white-color!important;
 }
 .navbar{
-    background-color: #a7c6f8!important;
-}
-.navbar-brand:hover{
-    cursor: pointer;
+    background-color: $button-color!important;
+
+    .navbar-brand{
+        color: $white-color;
+    }
+
+    &:hover{
+        cursor: pointer;
+    }
+    
+    .nav-item{
+        &:hover{
+            background-color: $button-color-hover;
+            border-radius: 3px;
+        }
+       
+    }
+    
+    .nav-link{
+        &hover{
+            color: $white-color !important;
+        }
+    }
 }
 
-.nav-item:hover{
-    background-color: #6aa3ff;
-    border-radius: 3px;
-}
-
-.nav-link:hover{
-    color: white!important;
-}

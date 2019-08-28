@@ -1,56 +1,60 @@
 <header></header>
 
 <div class="container">
-    <div class="row">
-        <div class="col-sm-12 col-md-12 col-md-offset-1">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th class="text-center">Price</th>
-                        <th class="text-center">Total</th>
-                        <th> </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let c of cartItems">
-                        <td class="col-sm-12 col-md-12">
-                        <div class="media">
-                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
-                            <div class="media-body">
-                                <h4 class="media-heading"><a href="#">
-                                    {{ c.name }}
-                                </a></h4>
-                            </div>
-                        </div></td>
-                        <td class="col-sm-1 col-md-1" style="text-align: center">
-                            {{ c.quantity}}
-                        </td>
-                        <td class="col-sm-1 col-md-1 text-center">
-                            {{c.price}}
-                        </td>
-                        <td class="col-sm-1 col-md-1 text-center">
-                            {{ c.price * c.quantity}}
-                        </td>
-                        <td class="col-sm-1 col-md-1">
-                            <button type="button" class="btn btn-color">
-                                <span class="fa fa-remove"></span>
-                            </button>
-                        </td>
-                    </tr>                   <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h3>Total</h3></td>
-                        <td class="text-right"><h3><strong>
-                            150
-                        </strong></h3></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-md-12">
-            <button class="btn btn-color col-md-12" type="submit" (click)="proceedToPay()">Proceed to pay</button>
-        </div>
+    <div class="shopping-cart" *ngIf="cartItems.length">
+    
+            <div class="column-labels">
+            <label class="product-image">Image</label>
+            <label class="product-details">Product</label>
+            <label class="product-price">Price</label>
+            <label class="product-quantity">Quantity</label>
+            <label class="product-removal">Remove</label>
+            <label class="product-line-price">Total</label>
+            </div>
+        
+            <div class="product" *ngFor="let c of cartItems">
+            <div class="product-image">
+                <img src="images/nike.jpg">
+            </div>
+            <div class="product-details">
+                <div class="product-title"> {{ c.name }}</div>
+                <p class="product-description">  {{ c.name }}</p>
+            </div>
+            <div class="product-price">{{ c.price}}</div>
+            <div class="product-quantity">
+                <input type="number" value="{{ c.quantity}}" min="1">
+            </div>
+            <div class="product-removal">
+                <button class="remove-product">
+                Remove
+                </button>
+            </div>
+            <div class="product-line-price">{{ c.price * c.quantity}}</div>
+            </div>
+        
+            <div class="totals">
+            <div class="totals-item">
+                <label>Subtotal</label>
+                <div class="totals-value" id="cart-subtotal">71.97</div>
+            </div>
+            <div class="totals-item">
+                <label>Tax (5%)</label>
+                <div class="totals-value" id="cart-tax">3.60</div>
+            </div>
+            <div class="totals-item">
+                <label>Shipping</label>
+                <div class="totals-value" id="cart-shipping">15.00</div>
+            </div>
+            <div class="totals-item totals-item-total">
+                <label>Grand Total</label>
+                <div class="totals-value" id="cart-total">90.57</div>
+            </div>
+            </div>
+            <button class="btn btn-color checkout" type="button" (click)="proceedToPay()">Checkout</button>
+        
+      </div>
+    <div class="row" *ngIf="!cartItems.length">
+        <span>You have no items in your shopping cart.</span>
     </div>
 </div>
+
