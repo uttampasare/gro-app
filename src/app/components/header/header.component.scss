@@ -1,0 +1,23 @@
+.nav-link{
+    font-family: Roboto,Arial,sans-serif;
+    line-height: 20px;
+    font-size: 16px;
+    letter-spacing: .1px;
+    font-weight: 500;
+    color: white!important;
+}
+.navbar{
+    background-color: #a7c6f8!important;
+}
+.navbar-brand:hover{
+    cursor: pointer;
+}
+
+.nav-item:hover{
+    background-color: #6aa3ff;
+    border-radius: 3px;
+}
+
+.nav-link:hover{
+    color: white!important;
+}

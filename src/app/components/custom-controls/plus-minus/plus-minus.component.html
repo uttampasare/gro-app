@@ -1,0 +1,21 @@
+<div>
+ 
+    <span>{{item.name}}</span>
+    <div class="form-inline custom-plus-minus">
+        <div class="form-group">
+            <button type="button" class="btn" (click)="decrement()">-</button>
+            <input type="text" [(ngModel)]="quantity" name="quantity" 
+                class="form-control" [disabled]="true" style="max-width: 40px;">
+            <button type="button" class="btn" (click)="increment()">+</button>
+        </div>
+    </div>
+
+    <div>
+        <button *ngIf="!item.isAddedToCart" type="button" (click)="addToCart(item)"
+    class="btn btn-color">Add to cart</button>
+
+    <button *ngIf="item.isAddedToCart" type="button" (click)="removeFromCart(item)"
+    class="btn btn-color">Remove</button>
+    </div>
+    
+</div>

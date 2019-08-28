@@ -1,0 +1,24 @@
+{
+    "categories" : [
+        {
+            "category":"Beverages",
+            "name":"Beverages"
+        },
+        {
+            "category":"Dry Fruits",
+            "name":"Dry Fruits"
+        },
+        {
+            "category":"Grocery",
+            "name":"Grocery"
+        },
+        {
+            "category":"Shoes",
+            "name":"Shoes"
+        },
+        {
+            "category":"Cloths",
+            "name":"Cloths"
+        }
+    ]
+}

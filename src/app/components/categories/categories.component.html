@@ -1,0 +1,18 @@
+<header></header>
+<div class="container">
+        <mat-grid-list cols="3" rowHeight="100px">
+            <ng-container *ngFor="let product of products; let i=index">
+                    <mat-grid-tile
+                        [colspan]="1"
+                        [rowspan]="1"
+                        [style.background]="lightblue"
+                        class="custom-mat-grid-tile"
+                        (click)="onProductSelected(product)">
+                        <div>
+                            <span>{{product.name}}</span>
+                        </div>
+                    </mat-grid-tile>  
+            </ng-container>
+        </mat-grid-list>
+</div>
+

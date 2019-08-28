@@ -1,0 +1,21 @@
+<header></header>
+<div class="container">
+        <div *ngIf="!items.length">
+            <span>No items!!</span>
+        </div>
+
+        <mat-grid-list cols="5" rowHeight="100px" *ngIf="items.length">
+            <ng-container *ngFor="let item of items; let i=index">
+                    <mat-grid-tile
+                        [colspan]="1"
+                        [rowspan]="1"
+                        [style.background]="lightblue">
+                        <div class="item-container">
+                            <item-plus-minus [item]="item"></item-plus-minus>
+        
+                        </div>
+                    </mat-grid-tile>  
+            </ng-container>
+        </mat-grid-list>
+</div>
+

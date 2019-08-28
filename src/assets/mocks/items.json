@@ -1,0 +1,51 @@
+{
+    "Beverages" :[
+        {
+            "name":"Pepsi",
+            "description":"Pepsi",
+            "provider":"D-Mart",
+            "price":100,
+            "quantity":"1L"
+        },
+        {
+            "name":"Mirinda",
+            "description":"Mirinda",
+            "provider":"D-Mart",
+            "price":100,
+            "quantity":"1L"
+        },
+        {
+            "name":"Mazaa",
+            "description":"Mazaa",
+            "provider":"D-Mart",
+            "price":100,
+            "quantity":"1L"
+        },
+        {
+            "name":"ThumpsUp",
+            "description":"ThumpsUp",
+            "provider":"D-Mart",
+            "price":100,
+            "quantity":"1L"
+        }
+    ],
+    "Dry Fruits" : [
+        {
+            "name":"Cashew",
+            "description":"",
+            "provider":"D-Mart",
+            "price":50,
+            "quantity":"250Gm"
+        },
+        {
+            "name":"Cashew",
+            "description":"",
+            "provider":"D-Mart",
+            "price":50,
+            "quantity":"250Gm"
+        }
+    ],
+    "Grocery" :[
+
+    ]
+}

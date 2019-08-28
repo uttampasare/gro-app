@@ -1,0 +1,56 @@
+<header></header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Total</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let c of cartItems">
+                        <td class="col-sm-12 col-md-12">
+                        <div class="media">
+                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="http://icons.iconarchive.com/icons/custom-icon-design/flatastic-2/72/product-icon.png" style="width: 72px; height: 72px;"> </a>
+                            <div class="media-body">
+                                <h4 class="media-heading"><a href="#">
+                                    {{ c.name }}
+                                </a></h4>
+                            </div>
+                        </div></td>
+                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                            {{ c.quantity}}
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center">
+                            {{c.price}}
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center">
+                            {{ c.price * c.quantity}}
+                        </td>
+                        <td class="col-sm-1 col-md-1">
+                            <button type="button" class="btn btn-color">
+                                <span class="fa fa-remove"></span>
+                            </button>
+                        </td>
+                    </tr>                   <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h3>Total</h3></td>
+                        <td class="text-right"><h3><strong>
+                            150
+                        </strong></h3></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-12">
+            <button class="btn btn-color col-md-12" type="submit" (click)="proceedToPay()">Proceed to pay</button>
+        </div>
+    </div>
+</div>

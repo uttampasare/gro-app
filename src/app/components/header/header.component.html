@@ -1,0 +1,35 @@
+
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    
+      <a class="navbar-brand" (click)="home()">
+          <img src="../../../assets/images/veg.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          GroApp
+        </a>
+    
+    
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/categories']">Products</a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/about-us']">AboutUs</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/contact-us']">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="!isLoggedIn" (click)="login()">login</a>
+        </li>
+      </ul>
+      <div class="form-inline my-2 my-lg-0">
+          <button class="btn btn-color  my-2 my-sm-0" type="submit" (click)="viewCart()">
+              <i class="fa fa-cart-plus" >Cart</i>
+          </button>
+          <button class="btn btn-color my-2 my-sm-0" type="submit" *ngIf="isLoggedIn" (click)="logout()">
+              <i class="fa fa-sign-out">Logout</i>
+          </button>
+      </div>
+    
+    </div>
+  </nav>

@@ -1,0 +1,36 @@
+    <header></header>
+    <div class="d-flex justify-content-center">
+        <div class="user_card">
+            <div class="d-flex justify-content-center">
+                <form #loginForm="ngForm">
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                        </div>
+                        <input type="text" [(ngModel)]="username" name="username" class="form-control input_user"  placeholder="username">
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fa fa-key"></i></span>
+                        </div>
+                        <input type="password" [(ngModel)]="password" name="password" class="form-control input_pass" placeholder="password">
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customControlInline">
+                            <label class="custom-control-label" for="customControlInline">Remember me</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="d-flex justify-content-center mt-3 ">
+                <button type="button" name="button" class="btn btn-color"
+                        (click)="login()">Login</button>
+            </div>
+            <div class="mt-4">
+                <div class="d-flex justify-content-center links">
+                    Don't have an account? <a [routerLink]="['/registration-form']" class="ml-2">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
