@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationFormComponent implements OnInit {
 
+  date;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  register(values){
+    console.log(values.value);
   }
 
 }

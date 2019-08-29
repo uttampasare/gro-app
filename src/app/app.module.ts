@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -20,6 +20,8 @@ import { PlusMinusComponent } from './components/custom-controls/plus-minus/plus
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
 import { StoreModule } from '@ngrx/store';
 import { cartReducer } from './state-management/cart.reducer';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SliderComponent } from './components/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -35,15 +37,18 @@ import { cartReducer } from './state-management/cart.reducer';
     PaymentDetailsComponent,
     ReceiptComponent,
     PlusMinusComponent,
-    RegistrationFormComponent
+    RegistrationFormComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MaterialModule,
-    StoreModule.forRoot({items: cartReducer})
+    StoreModule.forRoot({items: cartReducer}),
+    NgbModule
   ],
   providers: [
     LoginActivate
