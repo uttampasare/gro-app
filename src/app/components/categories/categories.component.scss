@@ -1,9 +1,6 @@
 @import '../../../assets/css/common.scss';
 
-.custom-mat-grid-tile{
-    border-radius: 20px;
-    border:1px solid $button-color-hover;
-    box-shadow: $box-shaddow;
-    -webkit-box-shadow: $box-shaddow;
-    -moz-box-shadow: $box-shaddow;
+.card-img-top{
+    max-width: 50px;
+    max-height: 50px;
 }

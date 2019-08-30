@@ -1,19 +1,20 @@
 <header></header>
 <div class="container">
         <slider></slider>
-        <mat-grid-list cols="3" rowHeight="100px">
+
+        <mat-grid-list cols="2" rowHeight="2:1">
             <ng-container *ngFor="let product of products; let i=index">
-                    <mat-grid-tile
-                        [colspan]="1"
-                        [rowspan]="1"
-                        [style.background]="lightblue"
-                        class="custom-mat-grid-tile"
-                        (click)="onProductSelected(product)">
-                        <div>
-                            <span>{{product.name}}</span>
-                        </div>
-                    </mat-grid-tile>  
+                <mat-grid-tile (click)="onProductSelected(product)">
+                    <div class="card" style="width:400px">
+                      <img class="card-img-top" src="../../../assets/images/veg.png" alt="Card image">
+                      <div class="card-body">
+                        <h4 class="card-title">{{product.name}}</h4>
+                        <p class="card-text">{{product.category}}</p>
+                      </div>
+                    </div>
+                  </mat-grid-tile>
             </ng-container>
         </mat-grid-list>
 </div>
+
 
