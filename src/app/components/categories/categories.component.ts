@@ -4,7 +4,7 @@ import { Product } from 'src/app/model/product';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-categories',
+  selector: 'categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss']
 })

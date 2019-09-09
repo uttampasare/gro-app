@@ -1,11 +1,13 @@
 <header></header>
 <div class="container">
-        <div *ngIf="!items.length">
+        <div *ngIf="!filteredItems.length">
             <span>No items!!</span>
         </div>
 
-        <mat-grid-list cols="5" *ngIf="items.length">
-            <ng-container *ngFor="let item of items; let i=index">
+        <button (click)="filter()">Filter</button>
+
+        <mat-grid-list cols="4" *ngIf="filteredItems.length">
+            <ng-container *ngFor="let item of filteredItems; let i=index">
                 <mat-grid-tile>
                     <div class="card">
                       <img class="card-img-top" src="../../../assets/images/veg.png" alt="Card image">

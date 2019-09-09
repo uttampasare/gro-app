@@ -12,20 +12,25 @@ import { CartService } from 'src/app/services/cart.service';
 export class ItemComponent implements OnInit {
 
   public items:Array<Product>=[];
-  
+  public filteredItems:Array<Product>=[];
+  private selectedCategory:string;
   constructor(private activatedRoute: ActivatedRoute,
     private productService : ProductService,
     private cartService: CartService) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params=>{
-      let selectedCategory = params['category'];
-      console.log(selectedCategory);
-
-      this.productService.getItems(selectedCategory).subscribe( items => {
-        this.items = items[selectedCategory];
+      this.selectedCategory = params['category'];
+      
+      this.productService.getItems(this.selectedCategory).subscribe( items => {
+        this.items = items[this.selectedCategory];
+        this.filteredItems = this.items;
       });
     });
+  }
+
+  public filter(){
+    this.filteredItems = this.items.filter( i=> i.provider == 'Big Bazaar');
   }
 
 }

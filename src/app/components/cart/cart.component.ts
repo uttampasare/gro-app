@@ -3,6 +3,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/model/product';
+import { Price } from 'src/app/model/price';
 
 @Component({
   selector: 'app-cart',
@@ -11,7 +12,8 @@ import { Product } from 'src/app/model/product';
 })
 export class CartComponent implements OnInit {
 
-  public cartItems:Product[];
+  public cartItems:Product[];  
+  public price : Price;
   constructor(private cartService: CartService,
     private authService:AuthService,
     private router: Router) { }
@@ -20,6 +22,7 @@ export class CartComponent implements OnInit {
     this.cartService.getAllItems().subscribe( result =>{
       this.cartItems = result;
     });
+    this.price = this.cartService.calculatePrice();
   }
 
   public proceedToPay(){
@@ -30,4 +33,13 @@ export class CartComponent implements OnInit {
     }
   }
 
+
+  public onQuantityChange(){
+    this.price = this.cartService.calculatePrice();
+  }
+
+  removeCart(item){
+    this.cartService.removeFromCart(item);
+    this.onQuantityChange();
+  }
 }

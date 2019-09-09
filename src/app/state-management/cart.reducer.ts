@@ -7,7 +7,7 @@ export function cartReducer(state: Product[] = [], action) {
             return [...state, action.payload]
         
         case REMOVE_CART:
-            return [...state, action.payload.filter(t => t.name !== action.name)]
+            return state.filter(t => t.name !== action.payload.name);
         case REMOVE_ALL_CARTS:
             return [... state, []]
     }

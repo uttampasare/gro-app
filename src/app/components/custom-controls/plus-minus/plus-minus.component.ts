@@ -10,23 +10,25 @@ import { EventEmitter } from 'events';
 })
 export class PlusMinusComponent implements OnInit {
 
-  public quantity : number = 1;
   @Input() item : Product;
 
   constructor(private cartService : CartService) { }
 
   ngOnInit() {
+    if( !this.item.cartQuantity){
+        this.item.cartQuantity =1;
+    }
   }
 
   increment(){
-    this.quantity++;
+    this.item.cartQuantity++;
   }
 
   decrement(){
-    if( this.quantity == 1){
+    if( this.item.cartQuantity == 1){
       return;
     }
-    this.quantity--;
+    this.item.cartQuantity--;
   }
 
   

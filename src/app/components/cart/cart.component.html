@@ -1,60 +1,70 @@
 <header></header>
 
 <div class="container">
-    <div class="shopping-cart" *ngIf="cartItems.length">
+        <div class="col-mod-12 shopping-cart">
+                <div *ngIf="cartItems.length">
+                        <div class="column-labels">
+                            <label class="product-image">Image</label>
+                            <label class="product-details">Product</label>
+                            <label class="product-price">Price</label>
+                            <label class="product-quantity">Quantity</label>
+                            <label class="product-removal">Remove</label>
+                            <label class="product-line-price">Total</label>
+                        </div>
+                    
+                        <div class="product" *ngFor="let c of cartItems">
+                            <div class="product-image">
+                                <img src="../../../assets/images/veg.png">
+                            </div>
+                            <div class="product-details">
+                                <div class="product-title"> {{ c.name }}</div>
+                                <p class="product-description">  {{ c.provider }}</p>
+                            </div>
+                            <div class="product-price">{{ c.price}}</div>
+                            <div class="product-quantity">
+                                <input type="number" name="quantity" [(ngModel)]="c.cartQuantity"
+                                    (change)="onQuantityChange()">
+                            </div>
+                            <div class="product-removal">
+                                <button class="remove-product" (click)="removeCart(c)">Remove</button>
+                            </div>
+                            <div class="product-line-price">{{ c.price * c.cartQuantity}}</div>
+                        </div>
+                    
+                        <div class="totals">
+                            <div class="totals-item">
+                                <label>Subtotal</label>
+                                <div class="totals-value" id="cart-subtotal">
+                                    {{ price.subtotal}}
+                                </div>
+                            </div>
+                            <div class="totals-item">
+                                <label>Tax (5%)</label>
+                                <div class="totals-value" id="cart-tax">
+                                    {{ price.tax }}
+                                </div>
+                            </div>
+                            <div class="totals-item">
+                                <label>Shipping Charges</label>
+                                <div class="totals-value" id="cart-shipping">
+                                    {{ price.shippingCharges}}
+                                </div>
+                            </div>
+                            <div class="totals-item totals-item-total">
+                                <label>Grand Total</label>
+                                <div class="totals-value" id="cart-total">
+                                    {{ price.grandTotal}}
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-color checkout" type="button" (click)="proceedToPay()">Checkout</button>
+                  </div>
+        </div>
     
-            <div class="column-labels">
-            <label class="product-image">Image</label>
-            <label class="product-details">Product</label>
-            <label class="product-price">Price</label>
-            <label class="product-quantity">Quantity</label>
-            <label class="product-removal">Remove</label>
-            <label class="product-line-price">Total</label>
-            </div>
-        
-            <div class="product" *ngFor="let c of cartItems">
-            <div class="product-image">
-                <img src="images/nike.jpg">
-            </div>
-            <div class="product-details">
-                <div class="product-title"> {{ c.name }}</div>
-                <p class="product-description">  {{ c.name }}</p>
-            </div>
-            <div class="product-price">{{ c.price}}</div>
-            <div class="product-quantity">
-                <input type="number" value="{{ c.quantity}}" min="1">
-            </div>
-            <div class="product-removal">
-                <button class="remove-product">
-                Remove
-                </button>
-            </div>
-            <div class="product-line-price">{{ c.price * c.quantity}}</div>
-            </div>
-        
-            <div class="totals">
-            <div class="totals-item">
-                <label>Subtotal</label>
-                <div class="totals-value" id="cart-subtotal">71.97</div>
-            </div>
-            <div class="totals-item">
-                <label>Tax (5%)</label>
-                <div class="totals-value" id="cart-tax">3.60</div>
-            </div>
-            <div class="totals-item">
-                <label>Shipping</label>
-                <div class="totals-value" id="cart-shipping">15.00</div>
-            </div>
-            <div class="totals-item totals-item-total">
-                <label>Grand Total</label>
-                <div class="totals-value" id="cart-total">90.57</div>
-            </div>
-            </div>
-            <button class="btn btn-color checkout" type="button" (click)="proceedToPay()">Checkout</button>
-        
-      </div>
     <div class="row" *ngIf="!cartItems.length">
-        <span>You have no items in your shopping cart.</span>
+        <span>You have no items in your shopping cart. 
+            <a [routerLink]="['/categories']">Continue Shopping</a>
+        </span>
     </div>
 </div>
 
